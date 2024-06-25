@@ -6,9 +6,9 @@ import {
   postDocumentFailure,
   postDocumentStart,
   postDocumentSucces,
-  postDocumentSuccess,
 } from "../slice/document";
 import DocumentService from "../service/document";
+import { Input } from "../ui";
 
 const CreateDocument = () => {
   const [title, setTitle] = useState("");
@@ -51,7 +51,18 @@ const CreateDocument = () => {
   };
 
   return (
-    <div className="w-50">
+    <div
+      className="w-50 mx-auto"
+      style={{
+        width: "50%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <Input label={"Document Title"} state={title} setState={setTitle} />
+      <hr />
       {forms.map((form, index) => (
         <AddForm
           key={index}

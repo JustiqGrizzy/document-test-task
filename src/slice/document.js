@@ -36,7 +36,7 @@ export const documentSlice = createSlice({
     postDocumentStart: (state) => {
       state.isLoading = true;
     },
-    postDocumenteSuccess: (state) => {
+    postDocumenteSucces: (state) => {
       state.isLoading = false;
     },
     postDocumentFailure: (state) => {

@@ -3,8 +3,6 @@ import { Input, Select } from "../ui";
 
 const AddForm = (props) => {
   const {
-    title,
-    setTitle,
     fieldSequence,
     setFieldSequence,
     fieldType,
@@ -18,19 +16,21 @@ const AddForm = (props) => {
   return (
     <div>
       <form action="">
-        <Input label={"Document Title"} state={title} setState={setTitle} />
-        <hr />
         <Input
           label={"Field sequence (weight)"}
           state={fieldSequence}
           setState={setFieldSequence}
         />
-        <Select label={"Field type"} />
+        <Select
+          label={"Field type"}
+          state={fieldType}
+          setState={setFieldType}
+        />
         <Input label={"Field name"} state={fieldName} setState={setFieldName} />
         <input
           type="checkbox"
           id="a"
-          onChange={(e) => setMandatory(e.target.value)}
+          onChange={(e) => setMandatory(e.target.checked)}
           checked={mandatory}
         />
         <label htmlFor="a">Mandatory</label>

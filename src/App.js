@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, DocumentPreview, AddForm, CreateDocument } from "./components";
+import { Main, DocumentPreview, CreateDocument } from "./components";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {

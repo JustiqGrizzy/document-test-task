@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDocumentsStart, getDocumentsSucces } from "../slice/document";
 import DocumentService from "../service/document";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Main = () => {
   const { documents } = useSelector((state) => state.document);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const getDocuments = async () => {
     dispatch(getDocumentsStart());
@@ -23,9 +24,17 @@ const Main = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      className="mx-auto"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <button
-        className="btn btn-primary mb-3"
+        className="btn btn-primary mb-3 ms-auto"
         onClick={() => navigate("/add-document")}
       >
         New document form
@@ -41,15 +50,17 @@ const Main = () => {
           </tr>
         </thead>
         <tbody>
-          {/* {documents.map((item) => (
+          {documents.map((item) => (
             <tr id={item.id}>
               <th>{item.id}</th>
               <th>{item.document_name}</th>
               <th>{item.created_at}</th>
               <th>{item.field_count}</th>
-              <th><Link to={`/document-preview/${id}`}>Document preview</Link></th>
+              <th>
+                <Link to={`/document-preview/${id}`}>Document preview</Link>
+              </th>
             </tr>
-          ))} */}
+          ))}
           <tr>
             <th>1</th>
             <th>Document 1</th>
